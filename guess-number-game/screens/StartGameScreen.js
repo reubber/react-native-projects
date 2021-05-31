@@ -13,6 +13,7 @@ import {
 import Card from '../components/Card'
 import Input from '../components/Input'
 import Colors from '../constants/colors'
+import NumberContainer from '../components/NumberContainer'
 
 export default function StartGameScreen(props) {
   const [confirmed, setConfirmed] = useState(false)
@@ -41,13 +42,19 @@ export default function StartGameScreen(props) {
     setConfirmed(true)
     setSelectedNumber(parseInt(chosenNumber))
     setEnteredValue('')
+    Keyboard.dismiss()
   }
 
   let confimedOutPut;
 
   if(confirmed){
-    confimedOutPut = <Text>{selectedNumber}</Text>
-  }
+    confimedOutPut = (
+    <Card style={styles.summaryContainer}>
+      <Text>You selected</Text>
+      <NumberContainer>{selectedNumber}</NumberContainer>
+      <Button title="START GAME" color={Colors.primary}/>
+    </Card>
+    )}
 
   return (
     <TouchableWithoutFeedback onPress={()=>{
@@ -110,5 +117,9 @@ const styles = StyleSheet.create({
   input: {
     width: 50,
     textAlign: 'center'
+  },
+  summaryContainer: {
+    marginTop: 20,
+    alignItems: 'center'
   }
 })
