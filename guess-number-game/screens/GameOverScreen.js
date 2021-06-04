@@ -10,7 +10,9 @@ export default function GameOverScreen(props) {
       
       <View style={styles.imageContainer}>
         <Image
-          source={require('../assets/success.png')}
+          fadeDuration={1000}
+          //source={require('../assets/success.png')}
+          source={{uri:'https://cdn.ome.lt/nnGzO935tGN0kYssSL8z5n1gLQw=/770x0/smart/uploads/conteudo/fotos/Finish_Him.gif'}}
           style={styles.image}
           resizeMode="cover"
         />
