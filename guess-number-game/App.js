@@ -29,8 +29,6 @@ export default function App() {
     />
   }
 
-  fetchFonts
-
   const configureNewGameHandler = () => {
     setGuessRounds(0)
     setUserNumber(null)

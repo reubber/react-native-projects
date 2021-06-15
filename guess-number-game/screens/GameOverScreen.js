@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View , Button, Image} from 'react-native'
 import BodyText from '../components/BodyText'
 import TitleText from '../components/TitleText'
+import MainButton from '../components/MainButton'
 
 export default function GameOverScreen(props) {
   return (
@@ -20,7 +21,7 @@ export default function GameOverScreen(props) {
 
       <BodyText>Number of rounds: {props.roundNumber}</BodyText>
       <BodyText>Number war: {props.userNumber}</BodyText>
-      <Button title="NE GAME" onPress={props.onRestart}/>
+      <MainButton onPress={props.onRestart}>New game</MainButton>
     </View>
   )
 }
