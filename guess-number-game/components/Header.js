@@ -1,16 +1,16 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-import TitleText from './TitleText'
-import Colors from '../constants/colors'
+import TitleText from './TitleText';
+import Colors from '../constants/colors';
 
-export default function Header(props) {
+const Header = props => {
   return (
     <View style={styles.header}>
-      <TitleText style={styles.headerTitle}>{props.title}</TitleText>
+      <TitleText>{props.title}</TitleText>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   header: {
@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-})
+  }
+});
 
-
-
+export default Header;

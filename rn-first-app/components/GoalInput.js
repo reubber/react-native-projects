@@ -1,72 +1,61 @@
-import React, { useState } from 'react'
-import { TextInput, View, StyleSheet, Button, Modal } from 'react-native'
+import React, { useState } from 'react';
+import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
 
+const GoalInput = props => {
+  const [enteredGoal, setEnteredGoal] = useState('');
 
-function GoalInput(props) {
-
-  const [enteredGoals, setEnteredGoals] = useState('')
- 
-
-  const goalInputHandle = function (goal){
-    setEnteredGoals(goal)
-  }
+  const goalInputHandler = enteredText => {
+    setEnteredGoal(enteredText);
+  };
 
   const addGoalHandler = () => {
-    props.onAddGoal(enteredGoals)
-    setEnteredGoals('')
-  }
+    props.onAddGoal(enteredGoal);
+    setEnteredGoal('');
+  };
 
-  
-  
   return (
-    <Modal visible={props.visible} animationType={"slide"}>
-      <View style={styles.mainView}>
+    <Modal visible={props.visible} animationType="slide">
+      <View style={styles.inputContainer}>
         <TextInput
-          placeholder="Course goal"
-          style={styles.goalsInput}
-          onChangeText={goalInputHandle} 
-          value={enteredGoals}
+          placeholder="Course Goal"
+          style={styles.input}
+          onChangeText={goalInputHandler}
+          value={enteredGoal}
         />
-
-        <View style={styles.nestedButtons}>
+        <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="ADD" onPress={addGoalHandler}/>
+            <Button title="CANCEL" color="red" onPress={props.onCancel} />
           </View>
           <View style={styles.button}>
-            <Button title="CANCEL" color="red" onPress={props.onCancelGoal}/>
+            <Button title="ADD" onPress={addGoalHandler} />
           </View>
-        </View> 
-
+        </View>
       </View>
     </Modal>
-  )}
+  );
+};
 
-  const styles = StyleSheet.create({
-    mainView: {
-      flex:1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-  
-    goalsInput: {
-      width: '80%',
-      borderColor: 'black',
-      borderWidth: 1,
-      padding: 10,
-      marginBottom: 10
-    },
+const styles = StyleSheet.create({
+  inputContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  input: {
+    width: '80%',
+    borderColor: 'black',
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 10
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '60%'
+  },
+  button: {
+    width: '40%'
+  }
+});
 
-    button: {
-      width: '40%'
-      
-    },
-
-    nestedButtons: {
-      flexDirection: 'row',
-      justifyContent:'space-around',
-      width: '60%'
-    }
-  })
-
-
-export default GoalInput
+export default GoalInput;
