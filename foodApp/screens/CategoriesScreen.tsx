@@ -2,15 +2,11 @@ import React from 'react'
 import { 
   StyleSheet, 
   Text, View, 
-  Button, 
   FlatList, 
   TouchableOpacity, 
-  Platform
 } from 'react-native'
-import Colors from '../constants/Colors';
 
-import { CATEGORIES, Category } from '../data/dummy-data'
-
+import { CATEGORIES } from '../data/dummy-data'
 
 export function CategoriesScreen (props: any) {
   const { navigation } = props;
@@ -44,10 +40,7 @@ export function CategoriesScreen (props: any) {
 
 CategoriesScreen.navigationOptions = {
   headerTitle: 'Meal Categories',
-  headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor: ''
-  },
-  headerTintColor: Platform.OS === 'android' ? 'white': Colors.primaryColor
+ 
 };
 
 const styles = StyleSheet.create({
