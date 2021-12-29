@@ -12,11 +12,17 @@ export function CategoryMealsScreen (props: { navigation: any; }) {
   const catId = navigation.getParam('categoryId');
 
   const renderMealItem = (itemData: IMeal) => {
+    
     return (
       <MealItem 
         title={itemData.item.title}
         image={itemData.item.imageUrl}
-        onSelectMeal={()=>{}} 
+        onSelectMeal={()=>{
+          navigation.navigate({routeName: 'MealDetail',
+          params: {
+            mealId: itemData.item.id
+          }});
+        }} 
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}

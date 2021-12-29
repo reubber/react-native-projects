@@ -20,9 +20,9 @@ const optsNavigation = {
   module: 'modal'  //mode = animation
 }
 const MealsNavigator = createStackNavigator({
-  Categories: { screen: CategoriesScreen },
-  CategoryMeals: { screen: CategoryMealsScreen },
-  MealDetail: { screen: MealDetailScreen, navigationOptions: { headerShown: false }
+  Categories: { screen: CategoriesScreen, navigationOptions: { headerShown: true } },
+  CategoryMeals: { screen: CategoryMealsScreen, navigationOptions: { headerShown: true } },
+  MealDetail: { screen: MealDetailScreen, navigationOptions: { headerShown: true }
 }}, optsNavigation);
 
 export default createAppContainer(MealsNavigator);
