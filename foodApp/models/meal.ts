@@ -1,31 +1,48 @@
+export interface IMeal {
+  item: {
+    id: string;
+    categoryIds: Array<string>;
+    title: string;
+    affordability: string;
+    complexity: string;
+    imageUrl: string;
+    duration: number;
+    ingredients: Array<any>;
+    steps: Array<string>;
+    isGlutenFree: boolean;
+    isVegan:boolean;
+    isVegetarian: boolean;
+    isLactoseFree: boolean;
+  }
+}
 class Meal {
-  id: number;
+  id: string;
   categoryIds: Array<string>;
   title: string;
   affordability: string;
   complexity: string;
   imageUrl: string;
-  duration: string;
+  duration: number;
   ingredients: Array<any>;
-  steps: string;
+  steps: Array<string>;
   isGlutenFree: boolean;
   isVegan:boolean;
   isVegetarian: boolean;
   isLactoseFree: boolean;
   constructor(
-    id,
-    categoryIds,
-    title,
-    affordability,
-    complexity,
-    imageUrl,
-    duration,
-    ingredients,
-    steps,
-    isGlutenFree,
-    isVegan,
-    isVegetarian,
-    isLactoseFree
+    id: string,
+    categoryIds: Array<string>,
+    title: string,
+    affordability: string,
+    complexity: string,
+    imageUrl: string,
+    duration: number,
+    ingredients: Array<any>,
+    steps: Array<string>,
+    isGlutenFree: boolean,
+    isVegan: boolean,
+    isVegetarian: boolean,
+    isLactoseFree: boolean
   ) {
     this.id = id;
     this.categoryIds = categoryIds;
