@@ -1,5 +1,5 @@
 import React from 'react'
-import { OpaqueColorValue, Platform } from 'react-native';
+import { OpaqueColorValue, Platform, StatusBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -15,6 +15,7 @@ import { CategoryMealsScreen } from '../screens/CategoryMealsScreen';
 import { MealDetailScreen } from '../screens/MealDetailScreen';
 import { FavoritesScreen } from '../screens/FavoritesScreen';
 import FiltersScreen from '../screens/FiltersScreen';
+
 
 const defaultStackNavOptions = {
   headerStyle: {
@@ -34,7 +35,7 @@ const optsNavigation = {
     headerTintColor: Platform.OS === 'android' ? 'white': Colors.primaryColor,
     headerTitle: 'Screen'
   },
-  module: 'modal'  //mode = animation
+  module: 'modal',  //mode = animation
 }
 
 const MealsNavigator = createStackNavigator({
@@ -100,6 +101,13 @@ const MealsFavTabNavigator = Platform.OS === 'android'
 const MainNavigator = createDrawerNavigator({
   MealsFavs: MealsFavTabNavigator,
   Filters: FiltersNavigator
+}, {
+  contentOptions: {
+    activeTintColor: Colors.accentColor,
+    itemsContainerStyle: {
+      marginTop: StatusBar.currentHeight
+    }
+  }
 })
 
 export default createAppContainer(MainNavigator);
