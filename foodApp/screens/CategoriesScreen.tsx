@@ -6,8 +6,10 @@ import {
 } from 'react-native'
 
 import { CATEGORIES } from '../data/dummy-data'
-import { CategoryGridTile } from '../components';
-import { atan } from 'react-native-reanimated';
+import { CategoryGridTile, CustomHeaderButton } from '../components';
+import { HeaderButtons, Item} from 'react-navigation-header-buttons'
+import { navDataModel } from '../models/navData';
+
 export function CategoriesScreen (props: any) {
   const { navigation } = props;
   
@@ -40,10 +42,20 @@ export function CategoriesScreen (props: any) {
   )
 }
 
-CategoriesScreen.navigationOptions = {
+CategoriesScreen.navigationOptions = (navData: navDataModel) => {
+  return {
   headerTitle: 'Meal Categories',
- 
-};
+  headerLeft: () => (
+    <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+      <Item 
+        title="Menu"
+        iconName='ios-menu'
+        onPress={() => {
+          navData.navigation.toggleDrawer();
+        }}
+      />
+    </HeaderButtons>)
+}};
 
 const styles = StyleSheet.create({
   screen: {
