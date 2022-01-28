@@ -94,13 +94,29 @@ const MealsFavTabNavigator = Platform.OS === 'android'
     }
   });
 
-  const FiltersNavigator = createStackNavigator({
-    Filters: FiltersScreen
-  })
+  const FiltersNavigator = createStackNavigator(
+    {
+      Filters: FiltersScreen
+    }, 
+    { 
+      // navigationOptions: {
+      //   drawerLabel: 'Filters!!'
+      // },
+      defaultNavigationOptions: defaultStackNavOptions 
+    }
+  );
 
 const MainNavigator = createDrawerNavigator({
-  MealsFavs: MealsFavTabNavigator,
-  Filters: FiltersNavigator
+  MealsFavs: { screen: MealsFavTabNavigator, navigationOptions:
+    {
+    drawerLabel: 'Meals'
+    }
+  },
+  Filters: { screen: FiltersNavigator, navigationOptions: 
+    {
+    drawerLabel: 'Filters'
+    }
+  }
 }, {
   contentOptions: {
     activeTintColor: Colors.accentColor,
