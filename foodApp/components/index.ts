@@ -1,5 +1,4 @@
-import { fromEventPattern } from 'rxjs';
-
+export * from './Text';
 export * from './categories';
 export * from './meal-item';
 export * from './button';

@@ -1,5 +1,5 @@
 import React from 'react'
-import { OpaqueColorValue, Platform, StatusBar, Text} from 'react-native';
+import { OpaqueColorValue, Platform, StatusBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -16,6 +16,7 @@ import { MealDetailScreen } from '../screens/MealDetailScreen';
 import { FavoritesScreen } from '../screens/FavoritesScreen';
 import FiltersScreen from '../screens/FiltersScreen';
 
+import { Text } from '../components';
 
 const defaultStackNavOptions = {
   headerStyle: {

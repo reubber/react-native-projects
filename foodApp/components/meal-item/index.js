@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from 'react-native'
+import { StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native'
+import { Text } from '../Text'
 
 export function MealItem(props) {
   return (
@@ -20,7 +21,6 @@ export function MealItem(props) {
             <Text>{props.duration}m</Text>
             <Text>{props.complexity.toUpperCase()}</Text>
             <Text>{props.affordability.toUpperCase()}</Text>
-
           </View>
         </View>
       </TouchableOpacity>
