@@ -1,5 +1,5 @@
 import React from 'react'
-import { OpaqueColorValue, Platform, StatusBar } from 'react-native';
+import { OpaqueColorValue, Platform, StatusBar, Text} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -20,6 +20,9 @@ import FiltersScreen from '../screens/FiltersScreen';
 const defaultStackNavOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor: ''
+  },
+  headerTitleStyle: {
+    fontFamily: 'open-sans-bold'
   },
   headerTintColor: Platform.OS === 'android' ? 'white': Colors.primaryColor,
   headerTitle: 'Screen'
@@ -52,7 +55,7 @@ const FavNavigator = createStackNavigator({
 
 const tabScreenConfig = {
   Meals: { screen: MealsNavigator, navigationOptions: {
-    tabBarLabel: 'Meals',
+    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold'}}>Meals</Text>: 'Meals',
     tabBarIcon: (tabInfo: { tintColor: string | OpaqueColorValue }) => { 
       return (
         <Ionicons
@@ -62,11 +65,11 @@ const tabScreenConfig = {
         />
       );
     },
-      tabBarColor: Colors.primaryColor
+      tabBarColor: Colors.primaryColor,
     }
   },
   Favorites: { screen: FavNavigator, navigationOptions: {
-    tabBarLabel: 'Favorites!',
+    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold'}}>Favorites</Text>: 'Meals',
     tabBarIcon: (tabInfo: { tintColor: string | OpaqueColorValue }) => { 
       return (
         <Ionicons
@@ -90,6 +93,9 @@ const MealsFavTabNavigator = Platform.OS === 'android'
   })
   : createBottomTabNavigator(tabScreenConfig, {
     tabBarOptions: {
+      labelStyle: {
+        fontFamily: 'open-sans-bold'
+      },
       activeTintColor: Colors.accentColor
     }
   });
