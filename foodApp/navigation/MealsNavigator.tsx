@@ -56,7 +56,7 @@ const FavNavigator = createStackNavigator({
 
 const tabScreenConfig = {
   Meals: { screen: MealsNavigator, navigationOptions: {
-    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold'}}>Meals</Text>: 'Meals',
+    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold', color: 'white'}}>Meals</Text>: 'Meals',
     tabBarIcon: (tabInfo: { tintColor: string | OpaqueColorValue }) => { 
       return (
         <Ionicons
@@ -70,7 +70,7 @@ const tabScreenConfig = {
     }
   },
   Favorites: { screen: FavNavigator, navigationOptions: {
-    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold'}}>Favorites</Text>: 'Meals',
+    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold', color: 'white'}}>Favorites</Text>: 'Meals',
     tabBarIcon: (tabInfo: { tintColor: string | OpaqueColorValue }) => { 
       return (
         <Ionicons
