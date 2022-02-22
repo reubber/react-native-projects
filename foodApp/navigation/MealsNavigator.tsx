@@ -14,6 +14,9 @@ import { CategoriesScreen } from '../screens/CategoriesScreen';
 import { CategoryMealsScreen } from '../screens/CategoryMealsScreen';
 import { MealDetailScreen } from '../screens/MealDetailScreen';
 import { FavoritesScreen } from '../screens/FavoritesScreen';
+import { CalendarContainer as CalendarScreen } from '../screens/CalendarScreen';
+import { AgendaScreen } from '../screens/AgendaScreen';
+
 import FiltersScreen from '../screens/FiltersScreen';
 
 import { Text } from '../components';
@@ -53,6 +56,10 @@ const FavNavigator = createStackNavigator({
   MealDetail: MealDetailScreen  
 }, { defaultNavigationOptions: defaultStackNavOptions });
 
+const CalendarContainer = createStackNavigator({
+  Calendario: AgendaScreen,
+  Agenda: AgendaScreen,
+}, { defaultNavigationOptions: defaultStackNavOptions })
 
 const tabScreenConfig = {
   Meals: { screen: MealsNavigator, navigationOptions: {
@@ -70,7 +77,7 @@ const tabScreenConfig = {
     }
   },
   Favorites: { screen: FavNavigator, navigationOptions: {
-    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold', color: 'white'}}>Favorites</Text>: 'Meals',
+    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold', color: 'white'}}>Favorites</Text>: 'Favorites',
     tabBarIcon: (tabInfo: { tintColor: string | OpaqueColorValue }) => { 
       return (
         <Ionicons
@@ -81,6 +88,19 @@ const tabScreenConfig = {
       );
     },
     tabBarColor: Colors.accentColor
+  }},
+  Calendar: { screen: CalendarContainer, navigationOptions: {
+    tabBarLabel: Platform.OS ==='android' ? <Text style={{fontFamily: 'open-sans-bold', color: 'white'}}>Calendario</Text>: 'Calendario',
+    tabBarIcon: (tabInfo: { tintColor: string | OpaqueColorValue }) => { 
+      return (
+        <Ionicons
+          name='time'
+          size={24}
+          color={tabInfo.tintColor}
+        />
+      );
+    },
+    tabBarColor: 'red'
   }}
 }
 
