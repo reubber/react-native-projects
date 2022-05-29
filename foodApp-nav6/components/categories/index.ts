@@ -1,0 +1,1 @@
+export { CategoryGridTile } from './category-grid-tile/category-grid-tile.container'
