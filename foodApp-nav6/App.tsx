@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet } from 'react-native';
 import { CategoriesScreen } from './screens/CategoriesScreen';
 
 export default function App() {
   return (
-    <CategoriesScreen />
+    <React.Fragment>
+      <StatusBar style='light'/>
+      <CategoriesScreen />
+    </React.Fragment>
   );
 }
 
