@@ -5,9 +5,9 @@ export interface Category {
 }
 
 export class CategoryClass {
-  title: string | undefined;
-  id: string | undefined;
-  color: string | undefined;
+  title: string;
+  id: string;
+  color: string;
   
   constructor(public props: Category) {
     this.title = props.title
